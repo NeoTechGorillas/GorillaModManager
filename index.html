@@ -13,19 +13,20 @@
         }
 
         body {
-            background: linear-gradient(135deg, #ff5e62, #ff9966, #ffc371, #f7b733);
+            background: linear-gradient(135deg, #ff0000, #00ff00, #0000ff);
             color: #ffffff;
             display: flex;
             align-items: center;
             justify-content: center;
             min-height: 100vh;
-            background-size: 200% 200%;
-            animation: gradientMove 8s ease infinite;
+            background-size: 300% 300%;
+            animation: rgbFade 8s ease infinite;
         }
 
-        @keyframes gradientMove {
+        @keyframes rgbFade {
             0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+            33% { background-position: 100% 50%; }
+            66% { background-position: 50% 100%; }
             100% { background-position: 0% 50%; }
         }
 
