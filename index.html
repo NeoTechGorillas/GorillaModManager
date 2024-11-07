@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ArtificialMods Manager</title>
+    <title>GorillaModManager</title>
     <style>
         * {
             margin: 0;
@@ -13,60 +13,69 @@
         }
 
         body {
-            background: linear-gradient(135deg, #1e1e2f 30%, #28294e);
-            color: #f0f0f5;
+            background: linear-gradient(135deg, #ff5e62, #ff9966, #ffc371, #f7b733);
+            color: #ffffff;
             display: flex;
             align-items: center;
             justify-content: center;
             min-height: 100vh;
+            background-size: 200% 200%;
+            animation: gradientMove 8s ease infinite;
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         .container {
-            background: linear-gradient(135deg, #2a2a45, #252539);
-            border-radius: 12px;
+            background: linear-gradient(135deg, #33334d, #252539);
+            border-radius: 15px;
             width: 600px;
-            padding: 20px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-            color: #f0f0f5;
+            padding: 25px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+            color: #ffffff;
             text-align: center;
             transform: scale(1);
-            transition: transform 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .container:hover {
             transform: scale(1.05);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8);
         }
 
         h1 {
-            font-size: 2em;
-            margin-bottom: 15px;
+            font-size: 2.2em;
+            margin-bottom: 20px;
             color: #ffd700;
-            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            text-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
         }
 
         .mod-list {
             background-color: #1e1e2f;
-            padding: 15px;
-            border-radius: 8px;
+            padding: 20px;
+            border-radius: 10px;
             max-height: 300px;
             overflow-y: auto;
-            margin-bottom: 20px;
-            box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-bottom: 25px;
+            box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.3);
         }
 
         .mod-item {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px;
-            margin-bottom: 5px;
-            border-bottom: 1px solid #3a3a5e;
-            transition: background 0.3s, transform 0.3s;
+            padding: 12px;
+            margin-bottom: 8px;
+            border-bottom: 1px solid #444466;
+            transition: background 0.4s, transform 0.4s;
         }
 
         .mod-item:hover {
-            background-color: #2a2a45;
-            transform: translateX(5px);
+            background-color: #454565;
+            transform: translateX(10px);
         }
 
         .mod-item a {
@@ -76,23 +85,24 @@
         }
 
         .mod-item button {
-            background: linear-gradient(135deg, #3a3a5e, #4a4a6e);
-            color: #f0f0f5;
+            background: linear-gradient(135deg, #7f7fd5, #86a8e7, #91eae4);
+            color: #ffffff;
             border: none;
-            padding: 10px;
+            padding: 12px;
             font-size: 1em;
+            font-weight: bold;
             cursor: pointer;
-            border-radius: 4px;
-            transition: background 0.3s, transform 0.3s;
+            border-radius: 5px;
+            transition: background 0.3s, box-shadow 0.3s;
             width: 100%;
             text-align: left;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
         }
 
         .mod-item button:hover {
             background: #ffd700;
             color: #252539;
-            transform: translateY(-2px);
+            box-shadow: 0 8px 15px rgba(255, 215, 0, 0.4);
         }
 
         .footer {
@@ -102,31 +112,30 @@
         }
 
         .footer button {
-            background: linear-gradient(135deg, #3a3a5e, #4a4a6e);
+            background: linear-gradient(135deg, #7f7fd5, #86a8e7, #91eae4);
             border: none;
-            padding: 10px 20px;
-            color: #f0f0f5;
+            padding: 12px 25px;
+            color: #ffffff;
             cursor: pointer;
-            border-radius: 4px;
+            border-radius: 5px;
             font-weight: bold;
-            transition: background 0.3s, transform 0.3s;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s, box-shadow 0.3s;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
         }
 
         .footer button:hover {
             background: #ffd700;
             color: #252539;
-            transform: translateY(-2px);
+            box-shadow: 0 8px 15px rgba(255, 215, 0, 0.4);
         }
 
-        /* Scrollbar Styling */
         .mod-list::-webkit-scrollbar {
-            width: 8px;
+            width: 10px;
         }
 
         .mod-list::-webkit-scrollbar-thumb {
-            background-color: #3a3a5e;
-            border-radius: 4px;
+            background-color: #5e5e8f;
+            border-radius: 5px;
         }
 
         .mod-list::-webkit-scrollbar-track {
@@ -136,10 +145,10 @@
 </head>
 <body>
     <div class="container">
-        <h1>ArtificialMods Manager</h1>
+        <h1>GorillaModManager</h1>
         <div class="mod-list">
             <div class="mod-item">
-                <a href="GorillaModManager" target="_blank">
+                <a href="https://github.com/BepInEx/BepInEx/releases/latest" target="_blank">
                     <button>BepInEx</button>
                 </a>
             </div>
