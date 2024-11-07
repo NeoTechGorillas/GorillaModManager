@@ -21,6 +21,7 @@
             min-height: 100vh;
             background-size: 300% 300%;
             animation: rgbFade 8s ease infinite;
+            padding: 15px;
         }
 
         @keyframes rgbFade {
@@ -33,7 +34,8 @@
         .container {
             background: linear-gradient(135deg, #33334d, #252539);
             border-radius: 15px;
-            width: 600px;
+            width: 100%;
+            max-width: 600px;
             padding: 25px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
             color: #ffffff;
@@ -52,6 +54,13 @@
             margin-bottom: 20px;
             color: #ffd700;
             text-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+            animation: titleFade 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes titleFade {
+            0% { color: #ffd700; }
+            50% { color: #fff1c1; }
+            100% { color: #ffeb3b; }
         }
 
         .mod-list {
@@ -85,6 +94,7 @@
             flex-grow: 1;
             display: flex;
             justify-content: center;
+            text-align: center;
         }
 
         .mod-item button {
@@ -100,6 +110,7 @@
             width: 100%;
             text-align: center;
             box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+            outline: none;
         }
 
         .mod-item button:hover {
@@ -124,6 +135,7 @@
             font-weight: bold;
             transition: background 0.3s, box-shadow 0.3s;
             box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+            outline: none;
         }
 
         .footer button:hover {
